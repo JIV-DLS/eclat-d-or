@@ -11,8 +11,17 @@ const Media = () => {
   ]
 
   const videoUrls = [
-    'https://www.tiktok.com/@mcct_eclat_dor_officiel/video/7459085528978296069?_r=1&_t=ZM-8yn1gArlClE',
+    // Multiple TikTok sources (videos or profile links)
+    'https://www.tiktok.com/@mcct_eclat_dor_officiel/video/7459085528978296069',
+    'https://www.tiktok.com/@mcct_eclat_dor_officiel/video/7433538900716539141',
+    'https://www.tiktok.com/@mcct_eclat_dor_officiel/video/7455243782821317894',
+    'https://www.tiktok.com/@mcct_eclat_dor_officiel',
   ]
+
+  const extractTikTokId = (url) => {
+    const match = url.match(/video\/(\d+)/)
+    return match ? match[1] : null
+  }
 
   useEffect(() => {
     if (tab !== 'videos') return
@@ -50,15 +59,24 @@ const Media = () => {
 
       {tab === 'videos' ? (
         <div className="media-grid">
-          {videoUrls.map((url, i) => (
-            <div key={i} className="media-tile" style={{ padding: 8 }}>
-              <blockquote className="tiktok-embed" cite={url} data-video-id="7459085528978296069" style={{ maxWidth: '605px', minWidth: '325px' }}>
-                <section>
-                  <a href={url} target="_blank" rel="noreferrer">Voir la vidéo TikTok</a>
-                </section>
-              </blockquote>
-            </div>
-          ))}
+          {videoUrls.map((url, i) => {
+            const id = extractTikTokId(url)
+            return (
+              <div key={i} className="media-tile" style={{ padding: 8 }}>
+                {id ? (
+                  <blockquote className="tiktok-embed" cite={url} data-video-id={id} style={{ maxWidth: '605px', minWidth: '325px' }}>
+                    <section>
+                      <a href={url} target="_blank" rel="noreferrer">Voir la vidéo TikTok</a>
+                    </section>
+                  </blockquote>
+                ) : (
+                  <div className="media-meta" style={{ justifyContent: 'center' }}>
+                    <a href={url} target="_blank" rel="noreferrer" className="btn-outline">Voir le compte TikTok</a>
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       ) : (
         <div className="media-grid">
