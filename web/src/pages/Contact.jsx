@@ -22,10 +22,11 @@ const Contact = () => {
       <div className="contact-grid">
         <div className="contact-info">
           <p>Vous souhaitez nous rejoindre ou nous écrire ? Laissez-nous un message.</p>
+          <p className="org-name">Éclat d’Or « Saint Pierre Canisius »</p>
           <div className="info-cards">
-            <div className="info-card"><FaMapMarkerAlt /> Lomé, Togo</div>
-            <div className="info-card"><FaEnvelope /> contact@eclatdor.tg</div>
-            <div className="info-card"><FaPhoneAlt /> +228 XX XX XX XX</div>
+            <div className="info-card"><FaMapMarkerAlt /> Paroisse Sts Martyrs de l’Uganda – Tokoin, BP 8024</div>
+            <div className="info-card"><FaEnvelope /> meclatdor1@yahoo.fr / eclatdortokoin@gmail.com</div>
+            <div className="info-card"><FaPhoneAlt /> +228 22 21 43 44 / +228 91 58 09 57 / +228 92 26 39 22</div>
           </div>
         </div>
 

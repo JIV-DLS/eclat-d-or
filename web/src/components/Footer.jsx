@@ -28,9 +28,11 @@ const Footer = () => {
         
         <div className="footer-section">
           <h4>Contact</h4>
-          <p>Lomé, Togo</p>
-          <p>Email: contact@eclatdor.tg</p>
-          <p>Téléphone: +228 XX XX XX XX</p>
+          <p>Éclat d’Or « Saint Pierre Canisius »</p>
+          <p>Paroisse Sts Martyrs de l’Uganda – Tokoin</p>
+          <p>BP 8024</p>
+          <p>Email : meclatdor1@yahoo.fr / eclatdortokoin@gmail.com</p>
+          <p>Tél. +228 22 21 43 44 / +228 91 58 09 57 / +228 92 26 39 22</p>
         </div>
         
         <div className="footer-section">
