@@ -222,6 +222,15 @@
     left: 24px;
   }
   .theme-label { color: var(--drawer-text); font-weight: 600; }
+
+  /* Make sure the toggle is clearly visible in the light drawer */
+  .nav-menu-footer .theme-toggle {
+    display: inline-flex !important;
+    border: 1px solid rgba(13,27,94,0.35) !important;
+    background: #eef2ff !important;
+    color: var(--blue) !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06) !important;
+  }
   
   .logo h1 {
     font-size: 1.5rem;

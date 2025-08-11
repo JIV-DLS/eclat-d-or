@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
+import './ThemeToggle.css'
 
 const STORAGE_KEY = 'theme'
 
@@ -27,23 +28,7 @@ const ThemeToggle = () => {
   const toggle = () => setTheme((t) => (t === 'light' ? 'dark' : 'light'))
 
   return (
-    <button
-      type="button"
-      aria-label="Basculer le thème"
-      onClick={toggle}
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 36,
-        height: 36,
-        borderRadius: 18,
-        border: '1px solid rgba(255,255,255,0.35)',
-        color: 'var(--white)',
-        background: 'transparent',
-        cursor: 'pointer'
-      }}
-    >
+    <button type="button" aria-label="Basculer le thème" onClick={toggle} className="theme-toggle">
       {theme === 'light' ? <FaMoon /> : <FaSun />}
     </button>
   )
