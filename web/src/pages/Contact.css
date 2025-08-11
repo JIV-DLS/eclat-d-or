@@ -1,0 +1,20 @@
+.contact-page { padding: 80px 0 130px; }
+
+.contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; align-items: start; }
+
+.info-cards { display: grid; gap: 12px; margin-top: 12px; }
+.info-card { display: flex; align-items: center; gap: 10px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 12px 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+
+.contact-form form { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; padding: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+.fields { display: grid; gap: 12px; }
+.fields input, .fields textarea { padding: 12px; border: 1px solid var(--color-border); border-radius: 8px; background: transparent; color: var(--color-text); }
+.fields input:focus, .fields textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(19,36,150,0.15); }
+.fields button.btn { display: inline-flex; align-items: center; gap: 8px; justify-content: center; }
+
+.thanks { background: rgba(46, 204, 113, 0.15); border: 1px solid rgba(46, 204, 113, 0.35); color: #1e874b; padding: 16px; border-radius: 12px; }
+
+@media (max-width: 992px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-page { padding-bottom: 140px; }
+}
+

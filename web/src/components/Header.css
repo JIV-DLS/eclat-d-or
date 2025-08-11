@@ -1,0 +1,247 @@
+.header {
+  background: var(--header-bg);
+  backdrop-filter: saturate(120%) blur(10px);
+  -webkit-backdrop-filter: saturate(120%) blur(10px);
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-actions {
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ensure theme toggle is visible on the blue header in light mode */
+.header .theme-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: var(--white);
+  box-shadow: none;
+}
+.header .theme-toggle:hover { background: rgba(255,255,255,0.12); }
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--white);
+}
+
+.motto {
+  font-size: 0.9rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.nav-menu ul {
+  display: flex;
+  list-style: none;
+}
+
+.nav-menu ul li {
+  margin-left: 30px;
+}
+
+.nav-menu ul li a {
+  color: var(--white);
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-menu ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-menu ul li a:hover::after,
+.nav-menu ul li a.active::after {
+  width: 100%;
+}
+
+/* Hide drawer footer on desktop */
+.nav-menu-footer { display: none; }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+}
+
+.menu-toggle span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--white);
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all 0.25s ease;
+}
+
+.menu-toggle span:nth-child(1) {
+  top: 0;
+}
+
+.menu-toggle span:nth-child(2) {
+  top: 11px;
+}
+
+.menu-toggle span:nth-child(3) {
+  top: 22px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 78%;
+    height: 100vh;
+    background: var(--color-surface);
+    padding: 90px 24px 24px;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    box-shadow: -12px 0 24px rgba(0,0,0,0.12);
+  }
+  
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .drawer-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--drawer-text);
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .menu-toggle.active span:nth-child(1) {
+    top: 11px;
+    transform: rotate(45deg);
+  }
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active span:nth-child(3) {
+    top: 11px;
+    transform: rotate(-45deg);
+  }
+  
+  .nav-menu ul {
+    flex-direction: column;
+  }
+  
+  .nav-menu ul li {
+    margin: 15px 0;
+  }
+
+  /* Light theme readability for the mobile drawer */
+  .nav-menu ul li a { color: var(--blue); }
+  .nav-menu ul li a:hover { color: var(--gold); }
+  .nav-menu ul li a::after { background-color: var(--gold); }
+
+  /* Increase link contrast for dark background drawer */
+  [data-theme="dark"] .nav-menu ul li a { color: var(--white); }
+  [data-theme="dark"] .nav-menu ul li a:hover { color: var(--gold); }
+
+  .nav-menu-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 18px;
+    left: 24px;
+  }
+  .theme-label { color: var(--drawer-text); font-weight: 600; }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+  
+  .motto {
+    font-size: 0.8rem;
+  }
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+@media (min-width: 769px) {
+  .header-actions { display: inline-flex; }
+  .drawer-close { display: none; }
+}
+

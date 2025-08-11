@@ -1,0 +1,18 @@
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: 1px solid rgba(13, 27, 94, 0.2); /* stronger in light mode to be visible */
+  background: #f4f6ff; /* subtle tint so it doesn't disappear on white */
+  color: var(--blue);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+
+.theme-toggle:hover { transform: translateY(-1px); }
+
+[data-theme="dark"] .theme-toggle { border-color: rgba(255,255,255,0.35); color: var(--white); }

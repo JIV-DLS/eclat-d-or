@@ -1,0 +1,4 @@
+/* Reset all demo styles; global styles live in App.css */
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { margin: 0; }
