@@ -11,11 +11,11 @@ const Media = () => {
   ]
 
   const videoUrls = [
-    // Multiple TikTok sources (videos or profile links)
+    // TikTok video posts only
     'https://www.tiktok.com/@mcct_eclat_dor_officiel/video/7459085528978296069',
     'https://www.tiktok.com/@mcct_eclat_dor_officiel/video/7433538900716539141',
     'https://www.tiktok.com/@mcct_eclat_dor_officiel/video/7455243782821317894',
-    'https://www.tiktok.com/@mcct_eclat_dor_officiel',
+
   ]
 
   const extractTikTokId = (url) => {
@@ -58,22 +58,17 @@ const Media = () => {
       </div>
 
       {tab === 'videos' ? (
-        <div className="media-grid">
+        <div className="media-grid video-embeds">
           {videoUrls.map((url, i) => {
             const id = extractTikTokId(url)
+            if (!id) return null
             return (
               <div key={i} className="media-tile" style={{ padding: 8 }}>
-                {id ? (
-                  <blockquote className="tiktok-embed" cite={url} data-video-id={id} style={{ maxWidth: '605px', minWidth: '325px' }}>
-                    <section>
-                      <a href={url} target="_blank" rel="noreferrer">Voir la vidéo TikTok</a>
-                    </section>
-                  </blockquote>
-                ) : (
-                  <div className="media-meta" style={{ justifyContent: 'center' }}>
-                    <a href={url} target="_blank" rel="noreferrer" className="btn-outline">Voir le compte TikTok</a>
-                  </div>
-                )}
+                <blockquote className="tiktok-embed" cite={url} data-video-id={id} style={{ maxWidth: '605px', minWidth: '325px' }}>
+                  <section>
+                    <a href={url} target="_blank" rel="noreferrer">Voir la vidéo TikTok</a>
+                  </section>
+                </blockquote>
               </div>
             )
           })}

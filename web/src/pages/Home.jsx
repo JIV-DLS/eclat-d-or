@@ -16,7 +16,7 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-image">
-          <img src={'/8eab8114726c7b9ed59819b5fc88c99b~tplv-tiktokx-cropcenter-1080-1080.jpeg'} alt="Le Mouvement Chrétiens Catholique de Tokoin Éclat d'Or" />
+          <img src={`${import.meta.env.BASE_URL}8eab8114726c7b9ed59819b5fc88c99b~tplv-tiktokx-cropcenter-1080-1080.jpeg`} alt="Le Mouvement Chrétiens Catholique de Tokoin Éclat d'Or" />
         </div>
       </section>
       

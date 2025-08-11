@@ -28,6 +28,14 @@
 
 .media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 10px; }
 
+/* Wider columns for embeds (e.g., TikTok) */
+.video-embeds {
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+}
+@media (min-width: 992px) {
+  .video-embeds { grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); }
+}
+
 .media-tile { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
 .media-thumb { aspect-ratio: 4/3; background: linear-gradient(135deg, #eef1f7, #e8ecf5); }
 .media-meta { display: flex; justify-content: space-between; padding: 10px 12px; font-size: 0.95rem; color: var(--color-muted); }
